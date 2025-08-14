@@ -9,6 +9,7 @@ This project focuses on performing Exploratory Data Analysis (EDA) on a dataset 
 
 - **Streamlit App:** [Open Here](https://magedyasse-interface-appsteamlitapp-o4usvy.streamlit.app/)
 - **Gradio App (Hugging Face Space):** [Open Here](https://huggingface.co/spaces/MagedAi/Heart_Failure_Prediction_ML)
+- **Canva Presentation** :[Open Here](https://www.canva.com/design/DAGv3q5_5sg/HJ71iVuBnwrFa7lYUMXAXA/edit?utm_content=DAGv3q5_5sg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton ))
 
 
 
@@ -105,6 +106,7 @@ This project lays the groundwork for further advancements in heart failure predi
 *   **Interpretability and Explainability:** Utilize advanced interpretability techniques (e.g., LIME, SHAP for other models) to better understand model predictions and identify key factors influencing heart failure outcomes, especially for complex models like XGBoost.
 *   **Data Collection and Augmentation:** Explore opportunities to collect more diverse and comprehensive datasets, or augment existing data through synthetic data generation, to enhance model generalization and robustness.
 *   **Clinical Validation:** Collaborate with medical professionals to validate the model's predictions in a clinical setting and assess its real-world impact.
+
 
 
 
