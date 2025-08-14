@@ -5,7 +5,10 @@
 This project focuses on performing Exploratory Data Analysis (EDA) on a dataset related to heart failure clinical records. The primary goal is to understand the underlying patterns, relationships, and characteristics within the data that contribute to heart failure prediction. This notebook serves as a foundational step for building robust machine learning models to predict heart failure events.
 
 
-
+## 🔗 Project Links
+- **Streamlit App:** [Open Here](https://magedyasse-interface-appsteamlitapp-o4usvy.streamlit.app/)
+- **Gradio App (Hugging Face Space):** [Open Here](https://huggingface.co/spaces/MagedAi/Heart_Failure_Prediction_ML)
+- **GitHub Repository:** [View on GitHub](https://github.com/magedyasse/interface)
 
 ## How to Use This Project
 
@@ -100,6 +103,7 @@ This project lays the groundwork for further advancements in heart failure predi
 *   **Interpretability and Explainability:** Utilize advanced interpretability techniques (e.g., LIME, SHAP for other models) to better understand model predictions and identify key factors influencing heart failure outcomes, especially for complex models like XGBoost.
 *   **Data Collection and Augmentation:** Explore opportunities to collect more diverse and comprehensive datasets, or augment existing data through synthetic data generation, to enhance model generalization and robustness.
 *   **Clinical Validation:** Collaborate with medical professionals to validate the model's predictions in a clinical setting and assess its real-world impact.
+
 
 
 
