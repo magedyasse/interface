@@ -1,4 +1,5 @@
-numba
-joblib
-streamlit
+scikit-learn
+xgboost
+imbalanced-learn
 pandas
+numpy
