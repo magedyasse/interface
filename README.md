@@ -64,7 +64,7 @@ Ensure you have the following installed:
 
 3.  **Open the notebook:**
 
-    Navigate to and open `03_eda_Final(1).ipynb` in your Jupyter environment.
+    Navigate to and open `ade_1.3.ipynb` in your Jupyter environment.
 
 4.  **Run all cells:**
 
@@ -76,7 +76,7 @@ Ensure you have the following installed:
 
 ### Understanding the Notebook
 
-The notebook `ade_1.4.ipynb` covers the following key areas:
+The notebook `ade_1.3.ipynb` covers the following key areas:
 
 *   **Data Loading and Initial Inspection:** Loading the `heart_failure_clinical_raw_data.csv` and examining its basic structure, missing values, and data types.
 *   **Exploratory Data Analysis (EDA):** Visualizations and statistical summaries to understand the distribution of features, correlations, and relationships between variables, especially concerning the `DEATH_EVENT` target variable.
@@ -100,6 +100,7 @@ This project lays the groundwork for further advancements in heart failure predi
 *   **Interpretability and Explainability:** Utilize advanced interpretability techniques (e.g., LIME, SHAP for other models) to better understand model predictions and identify key factors influencing heart failure outcomes, especially for complex models like XGBoost.
 *   **Data Collection and Augmentation:** Explore opportunities to collect more diverse and comprehensive datasets, or augment existing data through synthetic data generation, to enhance model generalization and robustness.
 *   **Clinical Validation:** Collaborate with medical professionals to validate the model's predictions in a clinical setting and assess its real-world impact.
+
 
 
 
