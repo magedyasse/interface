@@ -2,18 +2,39 @@ import streamlit as st
 import joblib
 import pandas as pd
 import numpy as np
-import glob
+import requests
 import os
 
-# Path to your saved models
-model_path = "*.pkl"
+# Dictionary with model names and direct download URLs
+MODEL_URLS = {
+    "RandomForestClassifier_model": "https://drive.google.com/uc?export=download&id=13ZKcEhIYwOOK-HvBFXa6yVhv70S_7z7I",
+    "LogisticRegression_model": "https://drive.google.com/uc?export=download&id=13ZKcEhIYwOOK-HvBFXa6yVhv70S_7z7I",
+    "SVC_model": "https://drive.google.com/uc?export=download&id=1doxYGJMHM5V9Z8sHvvq7nEtn_jelWOdP",
+    "XGB_model": "https://drive.google.com/uc?export=download&id=1U6IYytsdbvaKqNKSjQ5uXcTNu2SA73qe"
+}
 
-# Load all saved models
-model_files = glob.glob(model_path)
+# Create a folder for models
+os.makedirs("models", exist_ok=True)
+
+# Download models if not exist
+for name, url in MODEL_URLS.items():
+    file_path = f"models/{name}.pkl"
+    if not os.path.exists(file_path):
+        st.write(f"📥 Downloading {name}...")
+        r = requests.get(url)
+        with open(file_path, "wb") as f:
+            f.write(r.content)
+
+# Load models
 models = {}
-for file in model_files:
-    name = os.path.basename(file).replace(".pkl", "")
-    models[name] = joblib.load(file)
+for name in MODEL_URLS.keys():
+    file_path = f"models/{name}.pkl"
+    if os.path.exists(file_path):
+        models[name] = joblib.load(file_path)
+
+if not models:
+    st.error("❌ No models could be loaded.")
+    st.stop()
 
 # App title
 st.title("Heart Failure Prediction App 🫀")
@@ -21,7 +42,6 @@ st.title("Heart Failure Prediction App 🫀")
 # Model selection
 model_name = st.selectbox("Select a model", list(models.keys()))
 selected_model = models[model_name]
-
 st.write(f"**Selected model:** {model_name}")
 
 # User input fields
@@ -41,8 +61,7 @@ followup_days = st.slider("Follow-up Days", min_value=4, max_value=300, value=10
 
 # Predict button
 if st.button("Predict"):
-    # Prepare input data
-    input_data = pd.DataFrame([[ 
+    input_data = pd.DataFrame([[
         age,
         1 if anaemia == "Yes" else 0,
         creatinine_phosphokinase,
@@ -55,15 +74,13 @@ if st.button("Predict"):
         1 if sex == "Male" else 0,
         1 if smoking_status == "Yes" else 0,
         followup_days
-    ]], 
-        columns=[
-            'Age', 'Anaemia', 'CreatininePhosphokinase', 'Diabetes',
-            'EjectionFraction', 'HighBloodPressure', 'PlateletCount',
-            'SerumCreatinine', 'SerumSodium', 'Sex', 'SmokingStatus',
-            'FollowupDays'
-        ])
+    ]], columns=[
+        'Age', 'Anaemia', 'CreatininePhosphokinase', 'Diabetes',
+        'EjectionFraction', 'HighBloodPressure', 'PlateletCount',
+        'SerumCreatinine', 'SerumSodium', 'Sex', 'SmokingStatus',
+        'FollowupDays'
+    ])
 
-    # Prediction
     prediction = selected_model.predict(input_data)[0]
 
     st.subheader("Prediction Result")
